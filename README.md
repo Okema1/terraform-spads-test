@@ -7,13 +7,11 @@ This repo contains a terraform plan that:
 - installs ansible so everything is ready to be tested
 
 Install the prerequisites:\
-sudo apt install snapd\
-sudo snap install lxd\
+sudo apt install incus\
 and [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-started/install-cli)
 
 Initlize lxd with the following command:\
-lxd init\
-then accept all the defaults
+incus admin init --minimal
 
 
 To use:\
@@ -22,11 +20,11 @@ terraform plan\
 terraform apply
 
 To get into the ansible vm the best way is to use:\
-lxc exec ansible su - debian
+incus exec ansible su - debian
 
 To start fresh either use terraform apply with the destroy flag or:\
-lxc rm -f au1 eu1 us1 ansible\
+incus rm -f au1 eu1 us1 ansible\
 terraform apply
 
 Note:\
-When using hostnames append .lxd to the host, for example us1.lxd.
+When using hostnames append .incus to the host, for example us1.incus.
