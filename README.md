@@ -13,7 +13,6 @@ and [terraform](https://developer.hashicorp.com/terraform/tutorials/aws-get-star
 Initlize lxd with the following command:\
 incus admin init --minimal
 
-
 To use:\
 terraform init\
 terraform plan\
@@ -22,9 +21,10 @@ terraform apply
 To get into the ansible vm the best way is to use:\
 incus exec ansible su - debian
 
-To start fresh either use terraform apply with the destroy flag or:\
+To start fresh either of the following:\
+terraform destroy
+or\
 incus rm -f au1 eu1 us1 ansible\
-terraform apply
 
 Note:\
 When using hostnames append .incus to the host, for example us1.incus.
